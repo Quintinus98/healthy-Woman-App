@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -14,5 +15,15 @@ export class AppComponent {
     { title: 'Spam', url: '/folder/Spam', icon: 'warning' },
   ];
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
-  constructor() {}
+
+  // This method is to set the home page to be the page that loads first when opened.
+  constructor(
+    private router: Router
+    ) {
+    this.initializeApp();
+  }
+  initializeApp(){
+    // set new Home Page
+    this.router.navigateByUrl("home");
+  }
 }
